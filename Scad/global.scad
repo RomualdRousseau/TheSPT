@@ -8,4 +8,4 @@ height = 5.5;
 depth = 15;
 thickness = 0.3;
 
-explode_dist = 20;
+explode_dist = 10;

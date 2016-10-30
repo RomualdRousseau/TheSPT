@@ -60,6 +60,17 @@ module ft232rl()
     translate([-0.7, 1.2, 0]) jumper(3);
 }
 
+module yl30sd(widthsd = true)
+{
+    color("green") translate([-2.2, -1.7, -0.2]) cube(size = [4.4, 3.4, 0.2]);
+    color("silver") translate([-2.2, -1.3, 0]) cube(size = [2.6, 2.6, 0.3]);
+    translate([1.95, 0, 0]) rotate([0, 0, 90]) jumper(8);
+    if(widthsd)
+    {
+        color("blue") translate([-3.2, -1.2, 0.05]) cube(size = [3.2, 2.4, 0.2]);
+    }
+}
+
 module rs232(thickness = 0.3)
 {
     color("silver")
@@ -160,5 +171,6 @@ translate([13, 0, 0]) rs232();
 translate([17, 0, 0]) antenna();
 translate([25, 0, 0]) lcd_16x2();
 translate([-5, 0, 0]) switch_push();
+translate([-10, 0, 0]) yl30sd();
 
 

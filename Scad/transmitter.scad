@@ -57,14 +57,14 @@ module electronics()
     translate([width - 3, depth + 2.5 * cos(30), height - thickness - 0.05 + 2.5 * sin(30)]) rotate([0, 30, -90]) switch(angle = -10 * sin(360 * $t), length = 2.1, thickness = thickness);  
     translate([width + thickness + 0.1, 8.5, thickness + 1.3]) rotate([90, 0, 90]) rs232(thickness = thickness);
     translate([0, depth + 5 * cos(30), height + 5 * sin(30)]) rotate([-56.909, 0, 0]) translate([3, thickness + 1.73591, 0]) antenna();
-    translate([(width - 15.5) / 2, 0.5 + thickness, thickness]) battery();
+    translate([(width - 15.5) / 2, 0.7 + thickness, thickness + 0.1]) battery();
     translate([thickness + 7.25, 5, height - thickness]) lcd_16x2();
     translate([thickness + 11.75, 5, height - thickness]) switch_push(angle = 0, length = 0.5, thickness = thickness);  
 }
 
 module transmitter()
 {
-    box();
+    //box();
     box_skeleton();
     electronics();
 }
