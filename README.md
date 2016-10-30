@@ -1,2 +1,2 @@
 # TheSPT
-The Steam Punk Transmitter
+The Steam Punk RC Transmitter

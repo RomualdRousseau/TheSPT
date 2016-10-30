@@ -1,38 +1,38 @@
 #include <Wire.h>
-#include <WiiNunChuck.h>
+#include <WiiChuck.h>
 
-WiiNunChuck NunC;
+WiiChuck wiichuck;
 
 void setup()
 {
 	Serial.begin(9600);
-	NunC.begin();
+	wiichuck.begin();
 }
 
 void loop()
 {
-	if(NunC.ready())
+	if(wiichuck.ready())
 	{
-		Serial.print (NunC.JX, DEC);
+		Serial.print (wiichuck.JX, DEC);
 		Serial.print ("\t");
 
-		Serial.print (NunC.JY, DEC);
+		Serial.print (wiichuck.JY, DEC);
 		Serial.print ("\t");
 
-		Serial.print (NunC.AX, DEC);
+		Serial.print (wiichuck.AX, DEC);
 		Serial.print ("\t");
 
-		Serial.print (NunC.AY, DEC);
+		Serial.print (wiichuck.AY, DEC);
 
 		Serial.print ("\t");
 
-		Serial.print (NunC.AZ, DEC);
+		Serial.print (wiichuck.AZ, DEC);
 		Serial.print ("\t");
 
-		Serial.print (NunC.BZ, DEC);
+		Serial.print (wiichuck.BZ, DEC);
 		Serial.print ("\t");
 
-		Serial.print (NunC.BC, DEC);
+		Serial.print (wiichuck.BC, DEC);
 		Serial.print ("\t");
 
 		Serial.print ("\r\n");
