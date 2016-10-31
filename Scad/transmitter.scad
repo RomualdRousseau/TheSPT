@@ -64,7 +64,7 @@ module electronics()
 
 module transmitter()
 {
-    //box();
+    box();
     box_skeleton();
     electronics();
 }
