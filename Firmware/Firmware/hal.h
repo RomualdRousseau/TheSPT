@@ -4,6 +4,7 @@
 #include "Battery.h"
 #include "Transmiter.h"
 #include "Storage.h"
+#include "Script.h"
 
 class _HAL_t
 {
@@ -14,12 +15,16 @@ class _HAL_t
     Battery       battery;
     Transmiter    transmiter;
     Storage       storage;
+    Script        script;
 
     int current_model;
 
     char current_model_name[9];
 
+    bool maiden_flag;
+
     void init();
+
 };
 
 static _HAL_t HAL;
@@ -35,6 +40,10 @@ void _HAL_t::init()
   transmiter.init();
 
   storage.init();
+
+  script.init();
+
+  maiden_flag = false;
 
 #ifdef DEBUG
   Serial.println();

@@ -1,3 +1,6 @@
+#ifndef FMATH_H
+#define FMATH_H
+
 const int log_table[512] = {
   0, 1, 3, 5, 7, 9, 10, 12, 14, 16, 17, 19, 21, 23, 24, 26, 28, 29, 31, 33, 35, 36, 38, 40, 41, 43, 45, 46, 48, 50, 51, 53, 
   54, 56, 58, 59, 61, 62, 64, 66, 67, 69, 70, 72, 73, 75, 77, 78, 80, 81, 83, 84, 86, 87, 89, 90, 92, 93, 95, 96, 98, 99, 101, 102, 
@@ -31,3 +34,17 @@ int flog(int i) {
 int fexp(int i) {
   return 2 * i - flog(i);
 }
+
+int fmul(int a, int b) {
+  return long(a) * long(b) / 256;
+}
+
+int fma(int a, int b, int v) {
+  return (long(a) * long(b)) / 256 + v;
+}
+
+int flowf(int a, int b) {
+  return (a * 3 + b) / 4;
+}
+
+#endif

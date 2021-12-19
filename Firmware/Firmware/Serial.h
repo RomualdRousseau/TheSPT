@@ -52,7 +52,6 @@ class Serial_
 
 void Serial_::init()
 {
-  // Serial.begin(57600);
   Serial.begin(115200);
   while (!Serial)
   {

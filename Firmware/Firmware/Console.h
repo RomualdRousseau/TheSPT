@@ -13,13 +13,14 @@
 #define STATE_OPEN_MENU           1
 #define STATE_RENAME_MENU         2
 #define STATE_MIX_MENU            3
-#define STATE_RESET_MENU          4
-#define STATE_RESET_ALL_MENU      41
-#define STATE_RESET_TRIMS_MENU    42
-#define STATE_RESET_ONE_TRIM_MENU 43
-#define STATE_RESET_BACK_MENU     49
-#define STATE_SAVE_MENU           5
-#define STATE_QUIT_MENU           6
+#define STATE_MAIDEN_MENU         4
+#define STATE_RESET_MENU          5
+#define STATE_RESET_ALL_MENU      51
+#define STATE_RESET_TRIMS_MENU    52
+#define STATE_RESET_ONE_TRIM_MENU 53
+#define STATE_RESET_BACK_MENU     59
+#define STATE_SAVE_MENU           6
+#define STATE_QUIT_MENU           7
 #define STATE_QUIT                100
 
 void menu_reset();
@@ -27,6 +28,7 @@ void menu_calibrate_menu();
 void menu_open_menu();
 void menu_rename_menu();
 void menu_mix_menu();
+void menu_maiden_menu();
 void menu_reset_menu();
 void menu_reset_all_menu();
 void menu_reset_trims_menu();
@@ -42,7 +44,7 @@ class Console
     int menu_dirty;
 
     Console():
-      m_lcd(0x27, 16, 2)
+      m_lcd(0x27, HAL_CONSOLE_WIDTH, HAL_CONSOLE_HEIGHT)
     {
     }
 
@@ -94,6 +96,7 @@ void Console::init()
 
   m_lcd.init();
   m_lcd.backlight();
+  m_lcd.setCursor(0, 0);
   m_lcd.print("Initializing ...");
 
   pinMode(HAL_CONSOLE_HOME_PIN, INPUT);
@@ -121,6 +124,9 @@ void Console::start_menu()
         break;
       case STATE_MIX_MENU:
         menu_mix_menu();
+        break;
+      case STATE_MAIDEN_MENU:
+        menu_maiden_menu();
         break;
       case STATE_RESET_MENU:
         menu_reset_menu();
@@ -169,7 +175,7 @@ void Console::ready(char* name, int level)
   m_lcd.print(level);
   m_lcd.print("%  ");
   m_lcd.setCursor(0, 1);
-  m_lcd.print("Ready");
+  m_lcd.print("Ready   ");
 }
 
 void Console::alert_low_battery(char* name, int level)

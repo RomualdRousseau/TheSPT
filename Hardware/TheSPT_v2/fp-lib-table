@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name "Logic_LevelTranslator")(type "KiCad")(uri "/home/romuald/Projects/KiCad/library/Logic_LevelTranslator.pretty")(options "")(descr ""))
+  (lib (name "Logos")(type "KiCad")(uri "/home/romuald/Projects/KiCad/library/Logos.pretty")(options "")(descr ""))
+)

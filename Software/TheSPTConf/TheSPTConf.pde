@@ -4,6 +4,7 @@
  
 float clipboardMixer[][] = new float[8][8];
 float clipboardTrim[] = new float[8];
+float clipboardFunc[] = new float[8];
 int savedTime;
 
 void setup() {

@@ -62,12 +62,29 @@ module electronics()
     translate([thickness + 11.75, 5, height - thickness]) small_switch_push(angle = 0, length = 0.5, thickness = thickness);  
 }
 
-module transmitter()
+module main()
 {
     box();
     box_skeleton();
     electronics();
 }
 
-transmitter();
+module schema()
+{
+    translate([-20.5, 0.5, 0]) part1_2d();
+    translate([-20.5, -14.5, 0]) bottom_door_2d();
+    translate([0.5, -5.5, 0]) part2_2d();
+    translate([0.5, -14.5, 0]) part3_2d();
+    translate([0.5, 0.5, 0]) part4_2d();
+    translate([0.5, 5, 0]) part5_2d();
+    translate([0.5, 7.5, 0]) part6_2d();
+    translate([0.5, 12, 0]) side_l_2d();
+    translate([0.5, 19, 0]) side_r_2d();
+}
 
+if ($preview) {
+    main();
+}
+else {
+    schema();
+}

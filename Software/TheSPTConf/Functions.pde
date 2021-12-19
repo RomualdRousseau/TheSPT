@@ -82,6 +82,10 @@ void copyFunc() {
   for (int i = 0; i < 8; i++) {
     clipboardTrim[i] = cp5.get(Numberbox.class, "trim" + i).getValue();
   }
+  
+  for (int i = 0; i < 8; i++) {
+    clipboardFunc[i] = cp5.get(Numberbox.class, "func" + i).getValue();
+  }
 }
 
 void pasteFunc() {
@@ -93,6 +97,10 @@ void pasteFunc() {
 
   for (int i = 0; i < 8; i++) {
     cp5.get(Numberbox.class, "trim" + i).setValue(clipboardTrim[i]);
+  }
+  
+  for (int i = 0; i < 8; i++) {
+    cp5.get(Numberbox.class, "func" + i).setValue(clipboardFunc[i]);
   }
 }
 

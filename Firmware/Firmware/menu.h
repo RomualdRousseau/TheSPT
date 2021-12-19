@@ -134,6 +134,35 @@ void menu_mix_menu()
       HAL.console.menu_state = STATE_RENAME_MENU;
       return;
     case EVENT_DOWN_PRESSED:
+      HAL.console.menu_state = STATE_MAIDEN_MENU;
+      return;
+  }
+}
+
+void maiden_action()
+{
+  int v = 0;
+  HAL.console.print_title("Maiden");
+  HAL.console.read_YesNo("Confirm? ", &v, 0, 1);
+  
+  HAL.maiden_flag = (v == 1);
+}
+
+void menu_maiden_menu()
+{
+  HAL.console.print_title("Setup Menu");
+  HAL.console.print_command("Maiden");
+
+  switch (HAL.console.wait_next_event())
+  {
+    case EVENT_HOME_PRESSED:
+    case EVENT_HOME_LONG_PRESSED:
+      maiden_action();
+      return;
+    case EVENT_UP_PRESSED:
+      HAL.console.menu_state = STATE_MIX_MENU;
+      return;
+    case EVENT_DOWN_PRESSED:
       HAL.console.menu_state = STATE_RESET_MENU;
       return;
   }
@@ -266,7 +295,7 @@ void menu_reset_menu()
       HAL.console.menu_state = STATE_RESET_ALL_MENU;
       return;
     case EVENT_UP_PRESSED:
-      HAL.console.menu_state = STATE_MIX_MENU;
+      HAL.console.menu_state = STATE_MAIDEN_MENU;
       return;
     case EVENT_DOWN_PRESSED:
       HAL.console.menu_state = STATE_SAVE_MENU;

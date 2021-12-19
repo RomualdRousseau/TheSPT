@@ -206,7 +206,7 @@ module box_deco()
 module main()
 {
     box_up();
-    //box_bottom();
+    box_bottom();
     box_left();
     box_right();
     box_back();
@@ -253,5 +253,9 @@ module schema()
     }
 }
 
-main();
+if ($preview) {
+    main();
+} else {
+    schema();
+}
 

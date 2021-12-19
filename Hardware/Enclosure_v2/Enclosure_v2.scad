@@ -89,7 +89,7 @@ module box2()
     translate([(width - 16) / 2, depth + 0.2, height]) cube([16, thickness, 1.3]);
 }
 
-module transmitter()
+module main()
 {
     
     difference()
@@ -103,5 +103,5 @@ module transmitter()
     electronics();
 }
 
-transmitter();
+main();
 
